@@ -1,27 +1,28 @@
+import { db } from '../db';
+import { projectsTable } from '../db/schema';
 import { type Project } from '../schema';
+import { asc } from 'drizzle-orm';
 
 /**
  * Handler to fetch all projects ordered by display_order
  * Returns portfolio projects for the main portfolio section
  */
 export const getProjects = async (): Promise<Project[]> => {
-    // This is a placeholder declaration! Real code should be implemented here.
-    // The goal of this handler is fetching all projects from the database ordered by display_order.
-    // Should include: title, description, technologies, demo/github/npm/slides URLs, image_url
-    
-    return [
-        {
-            id: 1,
-            title: "Telegram Bot Config Reality",
-            description: "Un bot per la configurazione di oggetti 3D",
-            technologies: ["Node.js", "Telegram API"],
-            demo_url: "https://example.com/demo",
-            github_url: "https://github.com/example/repo",
-            npm_url: null,
-            slides_url: null,
-            image_url: null,
-            display_order: 1,
-            created_at: new Date()
-        }
-    ];
+  try {
+    // Fetch all projects ordered by display_order
+    const results = await db.select()
+      .from(projectsTable)
+      .orderBy(asc(projectsTable.display_order))
+      .execute();
+
+    // Return results with proper type structure
+    return results.map(project => ({
+      ...project,
+      // Ensure technologies array is properly handled (it's stored as JSON)
+      technologies: project.technologies as string[]
+    }));
+  } catch (error) {
+    console.error('Failed to fetch projects:', error);
+    throw error;
+  }
 };
