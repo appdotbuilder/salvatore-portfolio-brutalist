@@ -15,13 +15,13 @@ export function AboutSection({ professionalInfo }: AboutSectionProps) {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 bg-black text-white">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="brutal-section-title text-white mb-12">
+    <section id="about" className="py-8 bg-black text-white">
+      <div className="w-full">
+        <h2 className="brutal-section-title text-white mb-16">
           ABOUT ME
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Bio */}
           <div>
             <div className="brutal-text text-gray-300 text-base leading-relaxed mb-8">

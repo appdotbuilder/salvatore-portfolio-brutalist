@@ -28,6 +28,7 @@ body {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 0.9;
+  margin-bottom: 2rem;
 }
 
 .brutal-subtitle {
@@ -35,19 +36,21 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.01em;
+  margin-bottom: 1rem;
 }
 
 .brutal-section-title {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .brutal-text {
   font-size: 0.875rem;
   line-height: 1.4;
   font-weight: 400;
+  margin-bottom: 1rem;
 }
 
 /* Brutal Buttons */
@@ -117,25 +120,96 @@ body {
 .brutal-grid {
   display: grid;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .brutal-grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
 }
 
 .brutal-grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 /* Brutal Cards */
 .brutal-card {
   border: 2px solid var(--black);
-  padding: 1.5rem;
+  padding: 2rem;
   background-color: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  margin-bottom: 1rem;
+  /* NO transition for brutal effect */
+}
+
+.brutal-card:hover {
+  background-color: var(--accent-color);
+  color: var(--black);
+}
+
+.brutal-card:hover * {
+  color: inherit;
 }
 
 .brutal-card-accent {
   background-color: var(--accent-color);
+  color: var(--black);
+}
+
+.brutal-card-accent:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.brutal-card-accent:hover * {
+  color: var(--white);
+}
+
+/* Special styling for cards with white borders (in dark sections) */
+.brutal-card.border-white {
+  border-color: var(--white);
+  background-color: transparent;
+  color: var(--white);
+}
+
+.brutal-card.border-white:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.brutal-card.border-white:hover * {
+  color: var(--black);
+}
+
+/* Project cards specific hover effects */
+.brutal-card:hover .brutal-text {
+  color: inherit;
+}
+
+.brutal-card:hover .brutal-subtitle {
+  color: inherit;
+}
+
+.brutal-card:hover .brutal-link {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.brutal-card:hover .brutal-link:hover {
+  opacity: 1;
+}
+
+/* Tech tags in project cards */
+.brutal-card:hover .bg-black {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.brutal-card-accent:hover .bg-black {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* Brutal Forms */
@@ -162,15 +236,40 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .brutal-grid {
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .brutal-card {
-    padding: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 0.75rem;
   }
   
   .brutal-button {
     padding: 0.75rem 1.5rem;
     font-size: 0.75rem;
+  }
+  
+  .brutal-section-title {
+    margin-bottom: 2rem;
+  }
+  
+  .brutal-title {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Large screen improvements */
+@media (min-width: 1024px) {
+  .brutal-card {
+    padding: 2.5rem;
+  }
+  
+  .brutal-grid {
+    gap: 2.5rem;
+  }
+  
+  .brutal-section-title {
+    margin-bottom: 4rem;
   }
 }

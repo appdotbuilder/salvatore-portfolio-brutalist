@@ -13,7 +13,7 @@ export function Header({ onNavigate }: HeaderProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b-2 border-black z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12 py-4">
         <div className="flex justify-between items-center">
           <div 
             className="brutal-subtitle cursor-pointer"

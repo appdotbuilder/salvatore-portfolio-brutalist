@@ -112,17 +112,17 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   };
 
   return (
-    <section id="projects" className="py-20 px-4 bg-gray-100">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="brutal-section-title mb-12">
+    <section id="projects" className="py-8 bg-gray-100">
+      <div className="w-full">
+        <h2 className="brutal-section-title mb-16">
           PROJECTS
         </h2>
 
-        <div className="brutal-grid brutal-grid-2 lg:grid-cols-3">
+        <div className="brutal-grid brutal-grid-2 lg:grid-cols-3 gap-6">
           {displayProjects.map((project, index) => (
             <div 
               key={project.id}
-              className={`brutal-card ${index % 5 === 0 ? 'brutal-card-accent' : ''}`}
+              className={`brutal-card ${index % 5 === 0 ? 'brutal-card-accent' : ''} hover-parent`}
             >
               {/* Project Title */}
               <h3 className="brutal-subtitle text-lg mb-3">

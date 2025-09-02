@@ -35,6 +35,8 @@ function App() {
       setProfessionalInfo(result);
     } catch (error) {
       console.error('Failed to load professional info:', error);
+      // Set null if failed so the app can still continue
+      setProfessionalInfo(null);
     }
   }, []);
 
@@ -44,6 +46,8 @@ function App() {
       setProjects(result);
     } catch (error) {
       console.error('Failed to load projects:', error);
+      // Set empty array if failed so the app can still continue
+      setProjects([]);
     }
   }, []);
 
@@ -54,21 +58,27 @@ function App() {
       setCategories(result.categories);
     } catch (error) {
       console.error('Failed to load skills:', error);
+      // Set empty arrays if failed so the app can still continue
+      setSkills([]);
+      setCategories([]);
     }
   }, []);
 
   // Load all data on component mount
   const loadAllData = useCallback(async () => {
     setIsLoading(true);
+    console.log('Starting data load...');
     try {
       await Promise.all([
         loadProfessionalInfo(),
         loadProjects(),
         loadSkills()
       ]);
+      console.log('Data load completed successfully');
     } catch (error) {
       console.error('Failed to load data:', error);
     } finally {
+      console.log('Setting loading to false');
       setIsLoading(false);
     }
   }, [loadProfessionalInfo, loadProjects, loadSkills]);
@@ -104,31 +114,51 @@ function App() {
       {/* Fixed Header */}
       <Header onNavigate={handleNavigate} />
 
-      {/* Main Content */}
-      <main>
+      {/* Main Content - Improved centering and spacing */}
+      <main className="w-full">
         {/* Hero Section */}
-        <HeroSection 
-          professionalInfo={professionalInfo}
-        />
+        <div className="w-full px-8 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <HeroSection 
+              professionalInfo={professionalInfo}
+            />
+          </div>
+        </div>
 
         {/* About Section */}
-        <AboutSection 
-          professionalInfo={professionalInfo}
-        />
+        <div className="w-full px-8 lg:px-12 py-16">
+          <div className="max-w-7xl mx-auto">
+            <AboutSection 
+              professionalInfo={professionalInfo}
+            />
+          </div>
+        </div>
 
         {/* Skills Section */}
-        <SkillsSection 
-          categories={categories}
-          skills={skills}
-        />
+        <div className="w-full px-8 lg:px-12 py-16">
+          <div className="max-w-7xl mx-auto">
+            <SkillsSection 
+              categories={categories}
+              skills={skills}
+            />
+          </div>
+        </div>
 
         {/* Projects Section */}
-        <ProjectsSection 
-          projects={projects}
-        />
+        <div className="w-full px-8 lg:px-12 py-16">
+          <div className="max-w-7xl mx-auto">
+            <ProjectsSection 
+              projects={projects}
+            />
+          </div>
+        </div>
 
         {/* Contact Section */}
-        <ContactSection />
+        <div className="w-full px-8 lg:px-12 py-16">
+          <div className="max-w-7xl mx-auto">
+            <ContactSection />
+          </div>
+        </div>
       </main>
 
       {/* Footer */}

@@ -39,8 +39,8 @@ export function ContactSection() {
 
   if (submitted) {
     return (
-      <section id="contact" className="py-20 px-4 bg-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section id="contact" className="py-8 bg-black text-white">
+        <div className="w-full text-center">
           <h2 className="brutal-section-title text-white mb-8">
             MESSAGGIO INVIATO!
           </h2>
@@ -61,13 +61,13 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-black text-white">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="brutal-section-title text-white mb-12">
+    <section id="contact" className="py-8 bg-black text-white">
+      <div className="w-full">
+        <h2 className="brutal-section-title text-white mb-16">
           GET IN TOUCH
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div>
             <div className="mb-8">

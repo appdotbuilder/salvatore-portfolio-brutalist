@@ -19,6 +19,7 @@ import { submitContactForm } from './handlers/submit_contact_form';
 import { getContactForms } from './handlers/get_contact_forms';
 import { getProfessionalInfo } from './handlers/get_professional_info';
 import { updateProfessionalInfo } from './handlers/update_professional_info';
+import { seedData } from './handlers/seed_data';
 
 const t = initTRPC.create({
   transformer: superjson,
@@ -73,6 +74,13 @@ const appRouter = router({
 export type AppRouter = typeof appRouter;
 
 async function start() {
+  // Seed database with initial data
+  try {
+    await seedData();
+  } catch (error) {
+    console.error('Failed to seed database:', error);
+  }
+  
   const port = process.env['SERVER_PORT'] || 2022;
   const server = createHTTPServer({
     middleware: (req, res, next) => {

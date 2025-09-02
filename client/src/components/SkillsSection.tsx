@@ -33,13 +33,13 @@ export function SkillsSection({ categories, skills }: SkillsSectionProps) {
   };
 
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="brutal-section-title mb-12">
+    <section id="skills" className="py-8">
+      <div className="w-full">
+        <h2 className="brutal-section-title mb-16">
           TECH STACK
         </h2>
 
-        <div className="grid gap-8">
+        <div className="grid gap-10">
           {Object.entries(skillsData).map(([category, techs], categoryIndex) => (
             <div key={category} className="brutal-card">
               <h3 className="brutal-subtitle mb-4">

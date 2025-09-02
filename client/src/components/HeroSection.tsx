@@ -15,8 +15,8 @@ export function HeroSection({ professionalInfo }: HeroSectionProps) {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 pt-20">
-      <div className="max-w-7xl mx-auto text-center">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-20">
+      <div className="w-full text-center">
         <h1 className="brutal-title mb-4">
           CIAO SONO<br />
           SALVATORE
