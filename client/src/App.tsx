@@ -26,7 +26,6 @@ function App() {
   const [skills, setSkills] = useState<Skill[]>([]);
   const [categories, setCategories] = useState<SkillCategory[]>([]);
   const [, setCurrentSection] = useState('hero');
-  const [isLoading, setIsLoading] = useState(true);
 
   // Data fetching functions
   const loadProfessionalInfo = useCallback(async () => {
@@ -66,9 +65,8 @@ function App() {
 
   // Load all data on component mount
   const loadAllData = useCallback(async () => {
-    setIsLoading(true);
-    console.log('Starting data load...');
     try {
+      console.log('Starting data load...');
       await Promise.all([
         loadProfessionalInfo(),
         loadProjects(),
@@ -77,15 +75,14 @@ function App() {
       console.log('Data load completed successfully');
     } catch (error) {
       console.error('Failed to load data:', error);
-    } finally {
-      console.log('Setting loading to false');
-      setIsLoading(false);
     }
   }, [loadProfessionalInfo, loadProjects, loadSkills]);
 
   useEffect(() => {
     loadAllData();
   }, [loadAllData]);
+
+
 
   // Navigation handler
   const handleNavigate = useCallback((section: string) => {
@@ -97,27 +94,17 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Loading state
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="text-center">
-          <div className="brutal-title mb-4">LOADING...</div>
-          <div className="w-16 h-1 bg-black mx-auto"></div>
-        </div>
-      </div>
-    );
-  }
+
 
   return (
     <div className="min-h-screen bg-white">
       {/* Fixed Header */}
       <Header onNavigate={handleNavigate} />
 
-      {/* Main Content - Improved centering and spacing */}
+      {/* Main Content - Enhanced centering and spacing */}
       <main className="w-full">
         {/* Hero Section */}
-        <div className="w-full px-8 lg:px-12">
+        <div className="w-full px-10 lg:px-16">
           <div className="max-w-7xl mx-auto">
             <HeroSection 
               professionalInfo={professionalInfo}
@@ -126,7 +113,7 @@ function App() {
         </div>
 
         {/* About Section */}
-        <div className="w-full px-8 lg:px-12 py-16">
+        <div className="w-full px-10 lg:px-16 py-20">
           <div className="max-w-7xl mx-auto">
             <AboutSection 
               professionalInfo={professionalInfo}
@@ -135,7 +122,7 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div className="w-full px-8 lg:px-12 py-16">
+        <div className="w-full px-10 lg:px-16 py-24">
           <div className="max-w-7xl mx-auto">
             <SkillsSection 
               categories={categories}
@@ -145,7 +132,7 @@ function App() {
         </div>
 
         {/* Projects Section */}
-        <div className="w-full px-8 lg:px-12 py-16">
+        <div className="w-full px-10 lg:px-16 py-24">
           <div className="max-w-7xl mx-auto">
             <ProjectsSection 
               projects={projects}
@@ -154,7 +141,7 @@ function App() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-full px-8 lg:px-12 py-16">
+        <div className="w-full px-10 lg:px-16 py-20">
           <div className="max-w-7xl mx-auto">
             <ContactSection />
           </div>

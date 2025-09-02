@@ -44,6 +44,8 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 3rem;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
 }
 
 .brutal-text {
@@ -64,7 +66,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.1s ease;
+  /* Instant brutal transition - no smooth animations */
+  transition: none;
   text-decoration: none;
   display: inline-block;
 }
@@ -109,7 +112,8 @@ body {
   width: 0;
   height: 3px;
   background-color: var(--accent-color);
-  transition: width 0.1s ease;
+  /* Instant brutal underline effect */
+  transition: none;
 }
 
 .brutal-link:hover::after {
@@ -141,12 +145,16 @@ body {
   color: var(--black);
   cursor: pointer;
   margin-bottom: 1rem;
-  /* NO transition for brutal effect */
+  /* NO transition for brutal effect - instant transform */
+  transition: none;
+  transform: translateY(0);
 }
 
 .brutal-card:hover {
   background-color: var(--accent-color);
   color: var(--black);
+  /* Instant brutal lift effect */
+  transform: translateY(-4px);
 }
 
 .brutal-card:hover * {
@@ -156,11 +164,15 @@ body {
 .brutal-card-accent {
   background-color: var(--accent-color);
   color: var(--black);
+  transition: none;
+  transform: translateY(0);
 }
 
 .brutal-card-accent:hover {
   background-color: var(--black);
   color: var(--white);
+  /* Instant brutal lift effect */
+  transform: translateY(-4px);
 }
 
 .brutal-card-accent:hover * {
@@ -172,11 +184,15 @@ body {
   border-color: var(--white);
   background-color: transparent;
   color: var(--white);
+  transition: none;
+  transform: translateY(0);
 }
 
 .brutal-card.border-white:hover {
   background-color: var(--white);
   color: var(--black);
+  /* Instant brutal lift effect */
+  transform: translateY(-4px);
 }
 
 .brutal-card.border-white:hover * {
@@ -243,6 +259,13 @@ body {
   .brutal-card {
     padding: 1.5rem;
     margin-bottom: 0.75rem;
+    /* Maintain transform on mobile */
+    transform: translateY(0);
+  }
+  
+  .brutal-card:hover {
+    /* Maintain brutal lift on mobile */
+    transform: translateY(-4px);
   }
   
   .brutal-button {
@@ -251,11 +274,11 @@ body {
   }
   
   .brutal-section-title {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   
   .brutal-title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -270,6 +293,17 @@ body {
   }
   
   .brutal-section-title {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
+  }
+  
+  .brutal-title {
+    margin-bottom: 3rem;
+  }
+}
+
+/* Extra large screen improvements */
+@media (min-width: 1280px) {
+  .brutal-section-title {
+    margin-bottom: 6rem;
   }
 }

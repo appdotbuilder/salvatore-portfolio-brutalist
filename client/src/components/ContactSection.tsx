@@ -41,7 +41,7 @@ export function ContactSection() {
     return (
       <section id="contact" className="py-8 bg-black text-white">
         <div className="w-full text-center">
-          <h2 className="brutal-section-title text-white mb-8">
+          <h2 className="brutal-section-title text-white mb-8 text-center">
             MESSAGGIO INVIATO!
           </h2>
           <div className="brutal-card border-white">
@@ -63,7 +63,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-8 bg-black text-white">
       <div className="w-full">
-        <h2 className="brutal-section-title text-white mb-16">
+        <h2 className="brutal-section-title text-white mb-16 text-center">
           GET IN TOUCH
         </h2>
 

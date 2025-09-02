@@ -17,7 +17,7 @@ export function AboutSection({ professionalInfo }: AboutSectionProps) {
   return (
     <section id="about" className="py-8 bg-black text-white">
       <div className="w-full">
-        <h2 className="brutal-section-title text-white mb-16">
+        <h2 className="brutal-section-title text-white mb-16 text-center">
           ABOUT ME
         </h2>
 

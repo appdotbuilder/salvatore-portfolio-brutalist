@@ -35,7 +35,7 @@ export function SkillsSection({ categories, skills }: SkillsSectionProps) {
   return (
     <section id="skills" className="py-8">
       <div className="w-full">
-        <h2 className="brutal-section-title mb-16">
+        <h2 className="brutal-section-title mb-16 text-center">
           TECH STACK
         </h2>
 

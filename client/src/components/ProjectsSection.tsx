@@ -114,7 +114,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section id="projects" className="py-8 bg-gray-100">
       <div className="w-full">
-        <h2 className="brutal-section-title mb-16">
+        <h2 className="brutal-section-title mb-16 text-center">
           PROJECTS
         </h2>
 
